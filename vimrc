@@ -468,7 +468,7 @@ nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guifont=Monaco:h14
+    set guifont=Source\ Code\ Pro\ 13
     set guioptions-=T
     set guioptions+=e
     set guioptions-=r
