@@ -31,5 +31,14 @@ vim -u $HOME/.vimrc.bundles +PlugInstall! +PlugClean! +qall
 export SHELL=$system_shell
 
 # don't need manual install YouCompleteMe
+# use pacman install YouCompleteMe
+sudo pacman -S vim-youcompleteme-git --needed
+
+# vim-fcitx
+sudo pacman -S vim-fcitx --needed
+
+# vim-latexsuit conflicts at <C-j> key mapping
+# sudo pacman -S vim-plugins
+
 
 echo "Install Done!"
