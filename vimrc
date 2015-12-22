@@ -318,6 +318,7 @@ au InsertLeave * set nopaste
 
 nnoremap <F6> :exec exists('syntax_on') ? 'syn off' : 'syn on'<CR>
 
+nnoremap <F7> :r! date "+\%Y-\%m-\%d \%H:\%M:\%S"
 
 "Smart way to move between windows 分屏窗口移动
 map <C-j> <C-W>j
@@ -468,7 +469,7 @@ nnoremap <buffer> <F10> :exec '!python' shellescape(@%, 1)<cr>
 
 " Set extra options when running in GUI mode
 if has("gui_running")
-    set guifont=Source\ Code\ Pro\ 13
+    set guifont=Source\ Code\ Pro\ 16
     set guioptions-=T
     set guioptions+=e
     set guioptions-=r
@@ -478,11 +479,19 @@ if has("gui_running")
     set linespace=2
     set noimd
     set t_Co=256
+    set lines=30
+    set columns=100
 endif
 
 " theme主题
-set background=dark
-colorscheme solarized
+if has('gui_running')
+  set background=dark
+  colorscheme solarized
+  call togglebg#map("<F8>")
+else
+  colorscheme molokai
+endif
+
 set t_Co=256
 
 "colorscheme molokai
@@ -503,3 +512,7 @@ highlight SpellRare term=underline cterm=underline
 highlight clear SpellLocal
 highlight SpellLocal term=underline cterm=underline
 
+
+filetype plugin indent on
+set grepprg=grep\ -nH\ $*
+let g:tex_flavor = "latex"
